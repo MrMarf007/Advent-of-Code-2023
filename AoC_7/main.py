@@ -21,7 +21,6 @@ def P1(hands):
 # 
 def P2(hands):
     Hand.cardOrder = ["J","2","3","4","5","6","7","8","9","T","Q","K","A"]
-    Hand.part = 2
     return P1(hands)
 
 
