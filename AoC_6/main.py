@@ -1,10 +1,8 @@
 def parse(part, file):
-    times=distances=[]
     lines = [line.rstrip() for line in file]
-    joinStr = ''
-    if part == 1: joinStr = ' '
-    times = [eval(i) for i in joinStr.join(lines[0].split(":")[1].split()).split(" ")]
-    distances = [eval(i) for i in joinStr.join(lines[1].split(":")[1].split()).split(" ")]
+    joinStr = ' ' if part == 1 else '' 
+    times       = [eval(i) for i in joinStr.join(lines[0].split(":")[1].split()).split(" ")]
+    distances   = [eval(i) for i in joinStr.join(lines[1].split(":")[1].split()).split(" ")]
     return times, distances
 
 def P1(times, distances):
@@ -17,9 +15,7 @@ def getAmountOfWinningDistances(i, roundTime, roundRecord):
     print("Round: ", i, " | Total time: ", roundTime, " | Time to beat: ", roundRecord)
     winningDistances = 0
     for holdTime in range(roundTime+1):
-        speed = holdTime
-        timeLeft = roundTime - holdTime
-        travelDistance = timeLeft * speed
+        travelDistance = (roundTime - holdTime) * holdTime
         if travelDistance > roundRecord: winningDistances += 1
     print("Amount winning distances: ", winningDistances)
     return winningDistances
