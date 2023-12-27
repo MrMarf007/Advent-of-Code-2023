@@ -32,13 +32,32 @@ class map:
                     temp = self.getLowestMappingFromRange(rest)
                     res = res + temp
                 return res
+            # if (match > lo and match < lo+size):
+            #     print(match, " >= ", lo)
+            #     add = []
+            #     if match-lo > 0: add = [(lo, (match-lo))]
+            #     res = [((target + (match-lo)), (size - (match-lo)))]
+            #     # print("res: ", res, add)
+            #     if ((match+range_-1) < lo+size):
+            #         print(match+range_, " < ", lo+size)
+            #         res = [((target + (match-lo)), range_)]
+            #         print("panicc")
+            #         restSize = ((lo+size)-(match+range_))
+            #         rest = ((match+range_), restSize)
+            #         print(rest)
+            #         temp = self.getLowestMappingFromRange(rest)
+            #         # print("temp: ", temp)
+            #         res = res + temp
+            #     return add + res
+                
+            # FIX MISSING CASES LOOK FOR MAPS IN THE SEED RANGE INSTEAD
         return [x]
     
     def mapArrayOfRanges(self, arr):
         res = []
         for val in arr:
             num = self.getLowestMappingFromRange(val)
-            #print (self.name, "mapped: ", val, " -> ", num)
+            print (self.name, "mapped: ", val, " -> ", num)
             for n in num:
                 res.append(n)
         return res
